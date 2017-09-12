@@ -28,7 +28,7 @@ let error = new TinyErrors(400, 'Username "tinyRush" is duplicated')
 ```
 ## parse
 ```javascript
-public static parse(error): AppError {...}
+public static parse(error): TinyError {...}
 
 // Example
 // This method usually use to parse mongoose error to error with appropriate code (HTTP Status)
