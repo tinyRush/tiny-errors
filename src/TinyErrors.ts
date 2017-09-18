@@ -1,19 +1,19 @@
-class TinyError extends Error {
+class TinyErrors extends Error {
   private _code: number;
   constructor(code: number, message: string) {
     super(message);
-    Error.captureStackTrace(this, TinyError);
+    Error.captureStackTrace(this, TinyErrors);
     this._code = code;
   }
-  public static parse(error): TinyError {
-    if (error instanceof TinyError) {
+  public static parse(error): TinyErrors {
+    if (error instanceof TinyErrors) {
       return error;
     }
     if (error.name === 'ValidationError') {
       let message = error.message
         .substr(error.message.lastIndexOf(':') + 1)
         .trim();
-      return new TinyError(400, message);
+      return new TinyErrors(400, message);
     }
     return error;
   }
@@ -25,4 +25,4 @@ class TinyError extends Error {
   }
 }
 
-export { TinyError };
+export { TinyErrors };

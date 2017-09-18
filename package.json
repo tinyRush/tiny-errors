@@ -5,7 +5,15 @@
   "main": "index.js",
   "scripts": {},
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "tinyRush",
+    "email": "tinyrush.team@gmail.com"
+  },
+  "homepage": "https://github.com/tinyRush/tiny-errors#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinyRush/tiny-errors.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^8.0.28"

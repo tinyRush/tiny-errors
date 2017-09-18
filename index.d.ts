@@ -1,6 +1,6 @@
-declare class TinyError extends Error {
+declare class TinyErrors extends Error {
   code: number;
   constructor(code: number, message: string);
-  static parse(error: any): TinyError;
+  static parse(error: any): TinyErrors;
 }
-export { TinyError };
+export { TinyErrors };
