@@ -1,6 +1,8 @@
 declare class TinyErrors extends Error {
-  code: number;
+  private _httpCode;
+  private _code;
   constructor(code: number, message: string);
-  static parse(error: any): TinyErrors;
+  code: string;
+  httpCode: number;
 }
 export { TinyErrors };

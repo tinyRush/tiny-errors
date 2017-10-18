@@ -1,27 +1,22 @@
 class TinyErrors extends Error {
-  private _code: number;
+  private _httpCode: number;
+  private _code: string;
   constructor(code: number, message: string) {
     super(message);
     Error.captureStackTrace(this, TinyErrors);
-    this._code = code;
+    this._httpCode = code;
   }
-  public static parse(error): TinyErrors {
-    if (error instanceof TinyErrors) {
-      return error;
-    }
-    if (error.name === 'ValidationError') {
-      let message = error.message
-        .substr(error.message.lastIndexOf(':') + 1)
-        .trim();
-      return new TinyErrors(400, message);
-    }
-    return error;
-  }
-  get code(): number {
+  get code(): string {
     return this._code;
   }
-  set code(code: number) {
+  set code(code: string) {
     this._code = code;
+  }
+  get httpCode(): number {
+    return this._httpCode;
+  }
+  set httpCode(httpCode: number) {
+    this._httpCode = httpCode;
   }
 }
 
