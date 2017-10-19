@@ -1,10 +1,11 @@
 class TinyErrors extends Error {
   private _httpCode: number;
   private _code: string;
-  constructor(code: number, message: string) {
+  constructor(httpCode: number, code: string, message: string) {
     super(message);
     Error.captureStackTrace(this, TinyErrors);
-    this._httpCode = code;
+    this._httpCode = httpCode;
+    this._code = code;
   }
   get code(): string {
     return this._code;
