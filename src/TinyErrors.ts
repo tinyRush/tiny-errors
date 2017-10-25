@@ -19,6 +19,12 @@ class TinyErrors extends Error {
   set httpCode(httpCode: number) {
     this._httpCode = httpCode;
   }
+  toJSON() {
+    return {
+      code: this._code,
+      message: this.message
+    };
+  }
 }
 
 export { TinyErrors };

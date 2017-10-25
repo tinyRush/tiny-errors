@@ -4,5 +4,9 @@ declare class TinyErrors extends Error {
   constructor(httpCode: number, code: string, message: string);
   code: string;
   httpCode: number;
+  toJSON(): {
+    code: string;
+    message: string;
+  };
 }
 export { TinyErrors };
